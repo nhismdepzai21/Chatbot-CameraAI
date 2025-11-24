@@ -6,10 +6,10 @@ cap = cv2.VideoCapture(0)
 samples = []
 labels = []
 id_to_name = {}
-user_count = int(input("👤 Nhap so nguoi can thu thap du lieu: "))
+user_count = int(input(" Nhap so nguoi can thu thap du lieu: "))
 for i in range(user_count):
     user_id = i + 1
-    name = input(f"📝 Nhap ten nguoi dung {user_id}: ")
+    name = input(f" Nhap ten nguoi dung {user_id}: ")
     id_to_name[user_id] = name
 
     print(f"📸 Bat dau thu thap khuon mat cho {name}. Nhin vao webcam...")
@@ -33,9 +33,9 @@ for i in range(user_count):
         cv2.imshow("Thu thap du lieu", frame)
         if cv2.waitKey(1) == 27:
             break
-print("✅ Huan luyen mo hinh...")
+print("Huan luyen mo hinh...")
 recognizer.train(samples, np.array(labels))
-print("✅ San sang nhan dien!")
+print(" San sang nhan dien!")
 while True:
     ret, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -54,3 +54,4 @@ while True:
         break
 cap.release()
 cv2.destroyAllWindows()
+
